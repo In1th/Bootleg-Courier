@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true,
+        "node": true
+    },
+    "root": true,
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": { "project": ["./tsconfig.json"] },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/strict-boolean-expressions": [
+            2,
+            {
+                "allowString" : false,
+                "allowNumber" : false
+            }
+        ],
+        "no-console": 1,
+        "quotes": [1, "single"],
+        "no-unused-private-class-members": 1,
+        "no-unreachable-loop": 1,
+        "default-case": 1,
+        "eqeqeq": 2,
+        "max-depth": ["warn", 4],
+        "no-var": 2
+    },
+    "ignorePatterns": ["src/**/*.test.ts", "src/**/*.ts", "src/**/*.tsx"]
+}
