@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
 	import type { Order } from "$lib/models/dtos";
 	import { orderStore } from "$lib/stores/orderStore";
 	import { userStore } from "$lib/stores/userStore";

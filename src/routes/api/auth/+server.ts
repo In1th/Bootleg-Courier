@@ -2,9 +2,9 @@ import type { RequestHandler } from "@sveltejs/kit";
 import {v4 as uuid} from 'uuid'
 import * as cookie from 'cookie';
 
-export const POST: RequestHandler = async ({request}) => {
+export const POST: RequestHandler = async () => {
     
-    const body = await request.json();
+    //const body = await request.json();
 
     const id = uuid()
 
