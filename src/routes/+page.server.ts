@@ -4,7 +4,6 @@ import { apiKey, authDomain } from "$env/static/private";
 import type { Load } from "@sveltejs/kit";
 
 // it so that it gets served as a static asset in production
-export const prerender = true;
 
 /** @type {import('@sveltejs/kit').Load} */
 export const load: Load = async () => {

@@ -1,4 +1,4 @@
-import adapter from 'sveltekit-adapter-firebase';
+import adapter from '@sveltejs/adapter-node';
 
 import preprocess from 'svelte-preprocess';
 
