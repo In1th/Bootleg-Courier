@@ -95,12 +95,14 @@
         grid-template-columns: 1fr 1fr;
         width: 100%;
         flex: 1;
+        gap: 1em;
     }
     .side {
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 2rem 3rem;
+        background-color: var(--login-color);
     
         & form {
             display: flex;

@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import { Order } from "$lib/stores/orderStore";
-	import Status from "./orders/Status.svelte";
+	import Status from "./Status.svelte";
 
     export let {id, name, contractor, cost, quantity, approved, deliveryTime}: Order = new Order();
     export let isAdmin = false;

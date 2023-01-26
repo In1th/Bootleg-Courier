@@ -2,7 +2,7 @@
 	import { Order, orderStore } from "$lib/stores/orderStore";
 	import { userStore } from "$lib/stores/userStore";
 	import DeleteOrder from "../DeleteOrder.svelte";
-	import OrderView from "../OrderView.svelte";
+	import OrderView from "$lib/components/OrderView.svelte";
 
 	let search = ''
 	

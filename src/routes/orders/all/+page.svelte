@@ -4,7 +4,7 @@
 	import { userStore } from "$lib/stores/userStore";
 	import { error } from "@sveltejs/kit";
 	import DeleteOrder from "../../DeleteOrder.svelte";
-	import OrderView from "../../OrderView.svelte";
+	import OrderView from "$lib/components/OrderView.svelte";
 
     if (!$userStore.loggedIn){
 		throw error(400, {message: 'You are not authorized to view this', errorId: 'no-auth'})

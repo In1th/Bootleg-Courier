@@ -2,7 +2,7 @@
 	import { Order, orderStore } from "$lib/stores/orderStore";
 	import { userStore } from "$lib/stores/userStore";
 	import { error } from "@sveltejs/kit";
-	import OrderView from "../OrderView.svelte";
+	import OrderView from "$lib/components/OrderView.svelte";
 	import Requests from "../Requests.svelte";
 
     if ($userStore.role !== 'admin'){
