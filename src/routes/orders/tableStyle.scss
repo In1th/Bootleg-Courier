@@ -2,6 +2,7 @@
 #orders {
   border-collapse: collapse;
   overflow-y: auto;
+  background-color: white;
   
   & td, & th {
     border: 1px solid #ddd;

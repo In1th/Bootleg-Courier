@@ -27,7 +27,7 @@
 	<meta name="description" content="Orders for this user"/>
 </svelte:head>
 
-<div class="text-column">
+<div class="text-column content">
 	{#await $orderStore.orders}
 		<p>Waiting ...</p>
 	{:then orders} 

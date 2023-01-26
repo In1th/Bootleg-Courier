@@ -4,7 +4,7 @@
 
 </script>
 
-<section>
+<section class="content">
 	<h1>
 		Welcome to my pain, {$userStore.name}
 	</h1>

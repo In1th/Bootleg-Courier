@@ -153,14 +153,14 @@
 
 	.last{
 		margin-left: auto;
-		margin-right: 2em;
 		width: 5em;
-		outline: 1em solid var(--login-color);
     	display: flex;
     	justify-content: center;
-		background-color: var(--login-color);
+		background-color: var(--color-theme-1);
+		border-radius: 0 1.5em 0 0;
 		& button {
 			background: none;
+			box-shadow: none;
 			border: none;
 			cursor: pointer;
 			

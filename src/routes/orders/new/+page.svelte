@@ -31,7 +31,7 @@
     const goBack = () => goto('/orders')
 </script>
 
-<section>
+<section class="content">
     <b>Request a new order.</b>
     <form on:submit={onSubmit}>
         <label for='orderName'>Order name</label>

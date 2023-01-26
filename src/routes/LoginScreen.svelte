@@ -109,6 +109,13 @@
             flex-direction: column;
             gap: 5px;
         }
+
+        &:nth-child(1){
+            border-radius: 2em 0 2em 2em;
+        }
+        &:nth-child(2){
+            border-radius: 0 2em 2em 2em;
+        }
     }
 
     #logEmail, #logPasswd {

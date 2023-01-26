@@ -29,6 +29,8 @@
         height: 100%;
         background: none;
         border: none;
+        box-shadow: none;
+        border-radius: .5em;
         cursor: pointer;
 
         transition: all .1s ease-in;
