@@ -21,6 +21,15 @@
     $: usersCount = Math.floor(num*1_000_000 + 1_000_000)
     $: userCompact = formatter.format(usersCount)
 
+    let showPassword = false;
+    $: type = showPassword? 'text' : 'password'; 
+
+    function typeAction(node: any) {
+        node.type = type;
+    }
+
+    const onClick = () => {showPassword = !showPassword;}
+
     const loginWithGoogle = async () => {
         const provider = new GoogleAuthProvider();
         await signInWithPopup($firebaseStore.auth!, provider)
@@ -79,11 +88,22 @@
                    bind:value={email}
                    required/>
             <label for='logPasswd'>Password</label>
+            {#if showPassword}
             <input id='logPasswd' 
                    placeholder="Password" 
-                   type="password" 
+                   type="text"
                    bind:value={password}
                    required/>
+            {:else}
+            <input id='logPasswd' 
+                placeholder="Password" 
+                type="password"
+                bind:value={password}
+                required/>
+            {/if}
+            <div class="to-right">
+                <input type="button" value="Show Password" on:click={onClick}/>
+            </div>
             <input type="submit" value="Log In"/>
         </form>
     </div>
@@ -107,7 +127,7 @@
         & form {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: .5em;
         }
 
         &:nth-child(1){
@@ -130,6 +150,7 @@
 
     #separator{
         display: grid;
+        margin: 1em 0;
         grid-template-columns: 5fr 1fr 5fr;
         align-items: center;
 
@@ -146,5 +167,17 @@
     #title {
         font-weight: bolder;
         margin: 0;
+    }
+
+    input[type="button"]{
+        width: 8em;
+    }
+
+    .to-right{
+        display: flex;
+
+        & input {
+            margin-left: auto;
+        }
     }
 </style>
