@@ -26,7 +26,7 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-		background-image: url("bg.avif");
+		background-image: url("$lib/images/bg.avif");
 	}
 
 	main {
