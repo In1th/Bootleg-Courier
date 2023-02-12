@@ -1,5 +1,6 @@
 <script>
 	import { Order, orderStore } from "$lib/stores/orderStore";
+	import { userStore } from "$lib/stores/userStore";
 
     export let order = new Order();
     export let date = ''
@@ -11,7 +12,7 @@
         }
         order.deliveryTime = new Date(date)
         order.approved = 'approved'
-        await $orderStore.approveOrder(order, 'approved');
+        await $orderStore.approveOrder(order, $userStore.id, 'approved');
         refresh()
     }
 
@@ -21,7 +22,7 @@
         }
         order.deliveryTime = new Date(date)
         order.approved = 'rejected'
-        await $orderStore.approveOrder(order, 'rejected')
+        await $orderStore.approveOrder(order, $userStore.id, 'rejected')
         refresh()
     }
 </script>

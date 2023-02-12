@@ -6,6 +6,12 @@ export const handle: Handle = async function ({ event, resolve }) {
         throw redirect(302, '/');
     }
 
+    if (event.url.pathname.startsWith('/api') 
+        && !event.url.pathname.startsWith('/api/auth')){
+        const cookies = event.cookies.get('__session');
+        event.request.headers.append('Cookies', `__session=${cookies}`)
+    }
+
     const response = await resolve(event);
     return response;
 }

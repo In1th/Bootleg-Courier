@@ -24,10 +24,6 @@
     let showPassword = false;
     $: type = showPassword? 'text' : 'password'; 
 
-    function typeAction(node: any) {
-        node.type = type;
-    }
-
     const onClick = () => {showPassword = !showPassword;}
 
     const loginWithGoogle = async () => {
@@ -38,7 +34,7 @@
               // The signed-in user info.
               const user = result.user;
               
-              $userStore = await UserStore.GetUserFrom(user);
+              $userStore = await UserStore.AuthUser(user);
 
               $userStore.loggedIn = true;
 
@@ -53,7 +49,7 @@
           // Signed in 
           const user = userCredential.user;
           
-          $userStore = await UserStore.GetUserFrom(user);
+          $userStore = await UserStore.AuthUser(user);
 
           await $firebaseStore.auth!.updateCurrentUser(user)
 

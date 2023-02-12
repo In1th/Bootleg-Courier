@@ -11,29 +11,26 @@ export class UserStore{
     role: Role = 'user';
     loggedIn = false;
 
-    constructor(
-        private readonly _token?: string
-    ) {
-        
-    }
+    static async AuthUser(userInfo: User){
+        const token = await userInfo.getIdToken();
 
-    get authHeader(){
-        return 'Basic ' + this._token ?? '';
-    }
+        const response = await fetch(`/api/auth?user=${userInfo.uid}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
 
-    static async GetUserFrom(userInfo: User){
-        const response = await fetch(`/api/user?id=${userInfo.uid}`);
         if (response.status !== 200){
             throw new Error('Something went wrong when fetching user')
         }
         const data = await response.json();
-        const user = new UserStore(await userInfo.getIdToken())
-        user.id= userInfo.uid,
-        user.email= userInfo.email ?? '',
-        user.name= userInfo.displayName ?? data.role,
-        user.photoUrl= userInfo.photoURL ?? undefined,
-        user.role= data.role,
-        user.loggedIn= true
+        const user = new UserStore()
+        user.id= userInfo.uid;
+        user.email= userInfo.email ?? '';
+        user.name= userInfo.displayName ?? data.role;
+        user.photoUrl= userInfo.photoURL ?? undefined;
+        user.role= data.role;
+        user.loggedIn= true;
         return user;
     }
 

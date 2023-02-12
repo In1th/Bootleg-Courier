@@ -61,7 +61,9 @@ export async function approveOrder(id: string, approved: Status, date: Date){
 
 }
 
-export async function deleteOrder(id: string, userId: string, isAdmin: boolean){
+export async function deleteOrder(id: string, userId: string, role: string){
+
+
     const document = orders.doc(id);
 
     const snap = await document.get();
@@ -71,7 +73,7 @@ export async function deleteOrder(id: string, userId: string, isAdmin: boolean){
         throw new Error('Document not found!');
     }
     
-    if (data.contractor !== userId && !isAdmin){
+    if (data.contractor !== userId && role !== 'admin'){
         throw new Error('Now enough permissions!');
     }
 

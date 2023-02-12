@@ -35,13 +35,13 @@ export class OrderStore {
         return this.getOrders(`/api/orders?user=${userId}`)
     }
 
-    async getAllOrders(){
-        return this.getOrders('/api/orders')
+    async getAllOrders(userId: string){
+        return this.getOrders(`/api/orders/all?user=${userId}`)
     }
 
     async get(admin: boolean, userId?: string){
-        if (admin){
-            return this.getAllOrders()
+        if (admin && userId){
+            return this.getAllOrders(userId)
         }
         else if (userId){
             return this.getUserOrders(userId)
@@ -80,9 +80,10 @@ export class OrderStore {
 
     }
 
-    async approveOrder(order: Order, approved: Status){
+    async approveOrder(order: Order, approvedBy: string, approved: Status){
         const body = {
-            approved: approved,
+            approvedBy,
+            approved,
             date: order.deliveryTime.toDateString()
         }
 
@@ -95,10 +96,10 @@ export class OrderStore {
 
     }
 
-    async deleteOrder(orderId: string, userId: string, isAdmin: boolean){
+    async deleteOrder(orderId: string, userId: string, token: string){
         const body = {
             userId: userId,
-            isAdmin: isAdmin
+            token: token
         }
 
         await fetch(`/api/orders/${orderId}`, {
