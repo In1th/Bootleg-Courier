@@ -9,10 +9,11 @@
 	$: userPhotoUrl = $userStore.photoUrl ? $userStore.photoUrl : `https://avatars.dicebear.com/api/identicon/${$userStore.name}.svg?background=%23ffffff`
 
 	const logOut = () => {
-		signOut($firebaseStore.auth!).then(() => {
+		signOut($firebaseStore.auth!).then(async () => {
 		  goto('/');
 		  $userStore.loggedIn = false;
 		  $orderStore.orders = $orderStore.cheat();
+		  await fetch('/api/auth/signout', {method: 'DELETE'});
 		});
 	}
 
