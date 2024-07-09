@@ -23,7 +23,7 @@ export async function ValidateCookies(cookies: string | null, user: string){
     const auth = getAuth(firebase);
 
     const {uid} = await auth.verifySessionCookie(cookie);
-    console.log(uid, user)
+
     if (uid !== user){
         throw new Error('Cookie validation failed')
     }
