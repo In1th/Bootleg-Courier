@@ -63,7 +63,6 @@ Sam frontend nie ma informacji o połączeniu z Firebasem (czyli app Id, secret,
 - cookie - serializowanie ciastek przy ustawianiu ich
 - prettier, eslin - formatowanie kodu
 
-
 # Quickstart
 
 Zanim będziesz w ogóle odpalał aplikacje, potrzebuje sekretów, które powinny się znaleźć w pliku `.env`.
